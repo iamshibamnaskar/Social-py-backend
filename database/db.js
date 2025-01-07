@@ -2,7 +2,7 @@ const mongoose=require("mongoose")
 
 const connectDB= async ()=>{
     try{
-       await mongoose.connect("mongodb+srv://shibamnskar:0ByKQgbI3BDsv06X@cluster0.4pkvq.mongodb.net/social-py")
+       await mongoose.connect(process.env.MONGO_URL)
        console.log("database connected successfully!")
     }
     catch(error){
