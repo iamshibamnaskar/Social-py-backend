@@ -17,15 +17,17 @@ const verifyToken = require("./middlewares/verifyToken");
 
 dotenv.config();
 
+app.use(cors({
+  origin: "*", // Allows all origins
+}));
+
 // Middleware setup
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Enable CORS for all origins
-app.use(cors({
-  origin: "*", // Allows all origins
-}));
+
 
 // Routes
 app.use("/api/auth", authRoute);
