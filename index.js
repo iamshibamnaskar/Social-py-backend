@@ -23,7 +23,9 @@ app.use(cookieParser());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Enable CORS for all origins
-app.use(cors()); // Allows requests from any origin
+app.use(cors({
+  origin: "*", // Allows all origins
+}));
 
 // Routes
 app.use("/api/auth", authRoute);
