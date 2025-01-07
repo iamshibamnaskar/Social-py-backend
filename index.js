@@ -28,6 +28,10 @@ app.use(cookieParser());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Enable CORS for all origins
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true,
+}));
 
 
 // Routes
