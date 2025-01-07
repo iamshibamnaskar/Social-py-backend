@@ -44,7 +44,7 @@ const loginController = async (req, res, next) => {
         }
 
         const { password, ...data } = user._doc
-        const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRE })
+        const token = jwt.sign({ _id: user._id }, "Shibam@9064176535", { expiresIn: "1d" })
         res.cookie("token", token).status(200).json({
             user: data,
             jwt: token
@@ -69,7 +69,7 @@ const logoutController = async (req, res, next) => {
 const refetchUserController = async (req, res, next) => {
     try {
         const token = req.body.token;
-        jwt.verify(token, process.env.JWT_SECRET, {}, async (err, data) => {
+        jwt.verify(token, "Shibam@9064176535", {}, async (err, data) => {
             if (err) {
                 // Handle the JWT error without crashing the server
                 return res.status(400).json({

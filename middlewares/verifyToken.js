@@ -10,7 +10,7 @@ const verifyToken = (req, res, next) => {
 
   const token = authHeader.split(" ")[1]; // Extract the token after "Bearer"
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
+  jwt.verify(token, "Shibam@9064176535", (err, data) => {
     if (err) {
       throw new CustomError("Token is not valid!", 403);
     }
