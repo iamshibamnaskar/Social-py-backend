@@ -18,12 +18,12 @@ const verifyToken = require("./middlewares/verifyToken");
 dotenv.config();
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://social-py.vercel.app",
   credentials: true,
 }));
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.setHeader("Access-Control-Allow-Origin", "https://social-py.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "X-Requested-With,content-type");
   res.setHeader("Access-Control-Allow-Credentials", true);
@@ -37,7 +37,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Enable CORS for all origins
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://social-py.vercel.app",
   credentials: true,
 }));
 app.use((req, res, next) => {
